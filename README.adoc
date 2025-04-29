@@ -46,10 +46,28 @@ To Run the application:
 - New URLs can be added dynamically via POST `/monitor`.
 - Monitoring data is saved automatically to H2 database.
 
-| Command | Description |
-| --- | --- |
-| `git status` | List all *new or modified* files |
-| `git diff` | Show file differences that **haven't been** staged |
+
+== Available Endpoints
+
+|===
+| Method | Endpoint | Description
+
+| GET
+| /health
+| Check if application is running
+
+| GET
+| /monitor
+| List all monitored URLs
+
+| POST
+| /monitor
+| Add a URL to monitor (provide JSON body)
+
+| DELETE
+| /monitor?url=<your-url>
+| Remove URL from monitoring
+|===
 
 
 == Help
