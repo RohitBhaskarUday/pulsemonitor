@@ -28,11 +28,11 @@ This is a lightweight service that could:
 
 To launch your tests:
 ```
-./mvnw clean install
+mvn clean install
 ```
 To make changes execute your application:
 ```
-./mvnw exec:java
+mvn exec:java
 ```
 To Run the application:
 ```
