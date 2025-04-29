@@ -1,25 +1,59 @@
-= Pulsemonitor
+= Pulse Monitor
 
 image:https://img.shields.io/badge/vert.x-4.5.14-purple.svg[link="https://vertx.io"]
 
-This application was generated using http://start.vertx.io
+This application was built using http://start.vertx.io and extended to create a **URL Latency Monitoring Service**.
+
+Pulse Monitor was built to explore **asynchronous backend architectures** and **non-blocking event loops** using Vert.x.
+
+This is a lightweight service that could:
+- Periodically monitor the **latency** and **availability** of multiple URLs without blocking threads.
+- Persist monitoring data for analysis and uptime tracking.
+- Handle high concurrency efficiently using **Vert.x’s event-driven model**.
+- Provide simple REST APIs for interaction without the need for a complex frontend.
+
+== Requirements
+
+- Java 17+
+- Maven 3.6+
+- Postman/Hoppscotch/Httpie
+
+== Persistence
+
+- H2 file-based embedded database is used for storing URLs and historical check results.
+- Database is created automatically; no external setup needed.
+
 
 == Building
 
 To launch your tests:
 ```
-./mvnw clean test
+./mvnw clean install
+```
+To make changes execute your application:
+```
+./mvnw exec:java
+```
+To Run the application:
+```
+./start.sh
 ```
 
-To package your application:
-```
-./mvnw clean package
-```
+== How It Works After Starting
 
-To run your application:
-```
-./mvnw clean compile exec:java
-```
+- Server runs at: `http://localhost:8888`
+- Scheduled latency checks happen every 10 seconds.
+- New URLs can be added dynamically via POST `/monitor`.
+- Monitoring data is saved automatically to H2 database.
+
+== Available REST APIs
+
+| Method | Endpoint | Description |
+|:-------|:---------|:------------|
+| GET    | `/health` | Check if application is running |
+| GET    | `/monitor` | List all monitored URLs |
+| POST   | `/monitor` | Add a URL to monitor (provide JSON body) |
+| DELETE | `/monitor?url=<your-url>` | Remove URL from monitoring |
 
 == Help
 
@@ -27,5 +61,12 @@ To run your application:
 * https://stackoverflow.com/questions/tagged/vert.x?sort=newest&pageSize=15[Vert.x Stack Overflow]
 * https://groups.google.com/forum/?fromgroups#!forum/vertx[Vert.x User Group]
 * https://discord.gg/6ry7aqPWXy[Vert.x Discord]
+
+== Contact
+
+Built with 💻 by **Rohit Bhaskar Uday**  
+📫 Email: rohitbaskar26@gmail.com
+🌐 GitHub: https://github.com/RohitBhaskarUday
+
 
 
