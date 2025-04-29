@@ -48,12 +48,13 @@ To Run the application:
 
 == Available REST APIs
 
-| Method | Endpoint | Description |
-|:-------|:---------|:------------|
-| GET    | `/health` | Check if application is running |
-| GET    | `/monitor` | List all monitored URLs |
-| POST   | `/monitor` | Add a URL to monitor (provide JSON body) |
-| DELETE | `/monitor?url=<your-url>` | Remove URL from monitoring |
+| Method | Endpoint                   | Description                             |
+|:-------|:----------------------------|:----------------------------------------|
+| GET    | `/health`                   | Check if application is running         |
+| GET    | `/monitor`                  | List all monitored URLs                 |
+| POST   | `/monitor`                  | Add a URL to monitor (provide JSON body) |
+| DELETE | `/monitor?url=<your-url>`   | Remove URL from monitoring              |
+
 
 == Help
 
